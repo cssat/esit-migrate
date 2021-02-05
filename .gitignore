@@ -1,0 +1,3 @@
+# Ignore acorn dirs:
+/acorn-*
+/node_modules
