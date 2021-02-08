@@ -18,7 +18,7 @@ UW_PASSWORD=<MYNETID_PASSWORD>
 - From `esit-migrate/src/` run 
 
 ```
-python3 authomate_referral.py
+python3 automate_referral.py
 ```
 
 **The above script performs the following tasks**
