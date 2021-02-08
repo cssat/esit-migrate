@@ -1,0 +1,39 @@
+{
+	"assignedAgency": "ACORN",
+	"child": {
+		"id": "f33287c8-4f8e-45b8-b3ab-e1f091140490",
+		"name": {
+			"first": "Frank",
+			"last": "Ordway"
+		},
+		"childDateOfBirth": "2020-02-03",
+		"sexOfChild": "female"
+	},
+	"primaryContact": {
+		"name": {
+			"first": "Joe",
+			"last": "Mienko"
+		},
+		"physicalAddress": {
+			"address1": "1825 N. Villard St",
+			"city": "Tacoma",
+			"state": "WA",
+			"zip": "98406"
+		},
+		"preferredContactMethod": "email",
+		"email": "joemienko@uw.edu"
+	},
+	"referralId": "ef85e601-6c17-40f3-80c9-d22c539e54e8",
+	"referringParty": {
+		"name": {
+			"first": "John",
+			"last": "Anthony"
+		},
+		"role": "ecp.childCareProvider",
+		"preferredContactMethod": "email",
+		"email": "email@email.com"
+	},
+	"dateOfInitialReferral": "2021-02-04",
+	"reason": "development-concerns",
+	"familyContactDate": "2021-02-04"
+}
