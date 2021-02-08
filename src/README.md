@@ -27,4 +27,4 @@ python3 authomate_referral.py
 
 2. Uses selenium to enter a referral (hard coded for now). 
 
-3. Attempts to scrape cookies from the "manually" entered referral and make a post NOTE: This last step is currently resulting in a 401). 
+3. Attempts to scrape cookies from the "manually" entered referral and make a post (NOTE: This last step is currently resulting in a 401). 
