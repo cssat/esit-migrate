@@ -1,20 +1,15 @@
-import pyodbc 
 from faker import Faker
-import os
-from dotenv import load_dotenv
 import connection
-
-load_dotenv()
 
 faker = Faker()
 
 conn = connection.get_connection('ESIT_COPY')
 
 cursor = conn.cursor()
-cursor.execute('''SELECT TOP 100 
+cursor.execute('''SELECT TOP 100
                     [ReferralId] AS referralId--,
 	                --[ChildFirstName],
-                    --[ChildLastName], 
+                    --[ChildLastName],
                     --[ChildBirthDate] AS childDateOfBirth,
 	                --[PrimaryContactFirstName],
                     --[PrimaryContactLastName], 
@@ -34,13 +29,12 @@ for row in cursor:
     update += f"WHERE ReferralId = {row.referralId}"
     # print(update)
 
-
-cursor.execute('''SELECT TOP 100 
+cursor.execute('''SELECT TOP 100
 	                AddressId--,
-	                --[AddressLine1] AS prim_address1, --o
-	                --[CityName] AS prim_city, --o
-	                --[StateTypeId] AS [prim_state], --o
-	                --[ZipCode] AS prim_zip --o
+	                --[AddressLine1] AS prim_address1,
+	                --[CityName] AS prim_city,
+	                --[StateTypeId] AS [prim_state],
+	                --[ZipCode] AS prim_zip
                  FROM [ESITDMS_COPY].[dbo].[Address]''')
 
 for row in cursor:
