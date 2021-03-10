@@ -29,9 +29,36 @@ for row in cursor:
     update += f"PrimaryContactFirstName = '{faker.first_name()}', "
     update += f"PrimaryContactLastName = '{faker.last_name()}', "
     update += f"ReferrerFirstName = '{faker.first_name()}', "
-    update += f"ReferrerLastNamee = '{faker.last_name()}', "
+    update += f"ReferrerLastNamee = '{faker.last_name()}' "
     update += f"WHERE ReferralId = {row.referralId}"
     # child_first_name = faker.first_name()
     # child_last_name = faker.last_name()
     # print(f"UPDATE ESITDMS_COPY.dbo.Referral SET ChildFirstName = '{faker.first_name()}' SET ChildLastName = '{faker.last_name()}' SET ChildBirthDate = '{faker.date_of_birth()}' WHERE ReferralId = {row.referralId}")
+    # print(update)
+
+
+cursor.execute('''SELECT TOP 100 
+	                AddressId--,
+	                --[AddressLine1] AS prim_address1, --o
+	                --[CityName] AS prim_city, --o
+	                --[StateTypeId] AS [prim_state], --o
+	                --[ZipCode] AS prim_zip --o
+                 FROM [ESITDMS_COPY].[dbo].[Address]''')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.Address SET '
+    update += f"AddressLine1 = '{faker.street_address()}', "
+    update += f"CityName = '{faker.city()}', "
+    update += f"ZipCode = '{faker.zipcode_in_state('WA')}' "
+    update += f"WHERE AddressId = {row.AddressId}"
+    # print(update)
+
+cursor.execute('''SELECT TOP 100 EmailId--,
+                    --EmailAddress
+                FROM [ESITDMS_COPY].[dbo].[Email]''')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.Email SET '
+    update += f"EmailAddress = '{faker.email()}' "
+    update += f"WHERE EmailId = {row.EmailId}"
     print(update)
