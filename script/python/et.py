@@ -35,9 +35,6 @@ for row in cursor:
     update += f"ReferrerFirstName = '{faker.first_name()}', "
     update += f"ReferrerLastNamee = '{faker.last_name()}' "
     update += f"WHERE ReferralId = {row.referralId}"
-    # child_first_name = faker.first_name()
-    # child_last_name = faker.last_name()
-    # print(f"UPDATE ESITDMS_COPY.dbo.Referral SET ChildFirstName = '{faker.first_name()}' SET ChildLastName = '{faker.last_name()}' SET ChildBirthDate = '{faker.date_of_birth()}' WHERE ReferralId = {row.referralId}")
     # print(update)
 
 
