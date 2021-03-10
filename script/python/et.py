@@ -2,16 +2,13 @@ import pyodbc
 from faker import Faker
 import os
 from dotenv import load_dotenv
+import connection
 
 load_dotenv()
 
 faker = Faker()
 
-conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};'
-                      'SERVER=delolydb12021;'
-                      'DATABASE=ESITDMS_COPY;'
-                      f"UID={os.getenv('DB_USER')};"
-                      f"PWD={os.getenv('DB_PASSWORD')}")
+conn = connection.get_connection('ESIT_COPY')
 
 cursor = conn.cursor()
 cursor.execute('''SELECT TOP 100 
