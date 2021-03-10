@@ -22,4 +22,16 @@ cursor.execute('''SELECT TOP 100
                 FROM [ESITDMS_COPY].[dbo].[Referral]''')
 
 for row in cursor:
-    print(f"UPDATE ESITDMS_COPY.dbo.Referral SET ChildFirstName='{faker.first_name()}' WHERE ReferralId={row.referralId}")
+    update = 'UPDATE ESITDMS_COPY.dbo.Referral SET '
+    update += f"ChildFirstName = '{faker.first_name()}', "
+    update += f"ChildLastName = '{faker.last_name()}', "
+    update += f"ChildBirthDate = '{faker.date_of_birth()}', "
+    update += f"PrimaryContactFirstName = '{faker.first_name()}', "
+    update += f"PrimaryContactLastName = '{faker.last_name()}', "
+    update += f"ReferrerFirstName = '{faker.first_name()}', "
+    update += f"ReferrerLastNamee = '{faker.last_name()}', "
+    update += f"WHERE ReferralId = {row.referralId}"
+    # child_first_name = faker.first_name()
+    # child_last_name = faker.last_name()
+    # print(f"UPDATE ESITDMS_COPY.dbo.Referral SET ChildFirstName = '{faker.first_name()}' SET ChildLastName = '{faker.last_name()}' SET ChildBirthDate = '{faker.date_of_birth()}' WHERE ReferralId = {row.referralId}")
+    print(update)
