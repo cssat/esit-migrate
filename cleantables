@@ -1,0 +1,187 @@
+Child
+---
+FirstName
+MiddleName
+LastName
+BirthDate
+
+
+ChildAddressHistory
+---
+AddressLine1
+AddressLine2
+AddressLine3
+CityName
+ZipCode
+ZipAdd4Code -- null out
+
+
+ChildAgencyHistory
+---
+CountyTypeID -- null out
+
+
+ChildDocument
+---
+Name
+Description
+
+
+ChildDocumentViewRequest
+---
+Name
+
+
+ChildInformation
+---
+null out all *Text fields
+
+
+ChildNameHIstory
+---
+FirstName
+MiddleName
+LastName
+BirthDate
+
+
+ChildOutcome
+---
+Description
+CurrentStatusText - lorem ipsum?
+SuccessCriteriaText - lorem ipsum?
+StrategiesText - lorem ipsum?
+
+
+ContactPerson
+---
+FirstName
+LastName
+
+
+COSFOutcome
+----
+CostFoutcomeDescriptorDescription
+CostFoutcomeDescriptorText
+ResultSummaryText -- null out
+
+
+COSFOutcomeSupportingEvidence
+---
+SupportingEvidenceSourceTypeOtherName
+ResultsSummaryText
+
+
+Eligibility
+---
+InformedClinicalOpinionText
+DecisionDate
+
+
+ESITService
+---
+ServiceSettingTypeOtherName
+NonNaturalEnvironmentExplanationText
+MoveToNaturalEnvironmentPlanText
+ConsensusDiscussionText
+MethodDescription
+DeclinedNotesText
+LateOrNotStartedReasonText
+
+
+ESITStaffPerson
+---
+FirstName
+LastName
+
+
+EvaluationDomain
+---
+PresentDevelopmentLevelText -- null out
+RecommendationText -- null out
+
+
+FunctionalDomainTestResult
+---
+PresentDevelopmentLevelText
+DevelopmentAgeMonths
+
+
+FunctionalTestResult
+---
+AdministeredByName
+LocationCompletedName
+ResultSummaryText
+
+
+IFSP
+---
+InterimIFSPReasonText -- null out
+OverdueReasonText -- null out
+OtherCurrentServiceNotesText
+
+
+IFSPOtherCurrentService
+---
+NonESITServiceTypeOtherList
+
+
+IFSPOtherDesiredService
+---
+ProviderName
+StrategyText
+
+
+InboxMessage
+---
+SubjectDesciption
+MessageText
+SentDatetime -- static
+CreatedDateTime -- static
+
+
+Notification
+---
+MessageText
+PostedDatetime -- static
+LastUpdatedDatetime -- static
+
+
+ProgressNote
+---
+SubjectDescription
+NotesText
+
+
+ResourceCoordinationOutcome
+---
+Name
+Description
+StrategiesText
+
+
+SchoolDistrict
+---
+Name
+
+
+TableUpdateLog
+---
+truncate entirely
+
+
+TransferChild
+---
+TransferReasonText
+
+
+TransitionPlan
+---
+truncate entirely
+
+
+TransitionPlanActivity
+---
+truncate entirely
+
+

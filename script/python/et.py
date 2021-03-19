@@ -25,7 +25,8 @@ for row in cursor:
     update += f"PrimaryContactFirstName = '{faker.first_name()}', "
     update += f"PrimaryContactLastName = '{faker.last_name()}', "
     update += f"ReferrerFirstName = '{faker.first_name()}', "
-    update += f"ReferrerLastNamee = '{faker.last_name()}' "
+    update += f"ReferrerLastNamee = '{faker.last_name()}', "
+    update += f"ReferralClosureReasonOtherName = null "
     update += f"WHERE ReferralId = {row.referralId}"
     # print(update)
 
