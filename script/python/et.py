@@ -43,6 +43,7 @@ for row in cursor:
     update += f"AddressLine1 = '{faker.street_address()}', "
     update += f"CityName = '{faker.city()}', "
     update += f"ZipCode = '{faker.zipcode_in_state('WA')}' "
+    #### update -- sanitize lat/lon?
     update += f"WHERE AddressId = {row.AddressId}"
     # print(update)
 
