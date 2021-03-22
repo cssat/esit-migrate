@@ -6,16 +6,7 @@ faker = Faker()
 conn = connection.get_connection('ESIT_COPY')
 
 cursor = conn.cursor()
-cursor.execute('''SELECT TOP 100
-                    [ReferralId] AS referralId--,
-	                --[ChildFirstName],
-                    --[ChildLastName],
-                    --[ChildBirthDate] AS childDateOfBirth,
-	                --[PrimaryContactFirstName],
-                    --[PrimaryContactLastName], 
-	                --[ReferrerFirstName],
-	                --[ReferrerLastName]
-                FROM [ESITDMS_COPY].[dbo].[Referral]''')
+cursor.execute('SELECT [ReferralId] AS referralId FROM [ESITDMS_COPY].[dbo].[Referral]')
 
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.Referral SET '
@@ -30,13 +21,7 @@ for row in cursor:
     update += f"WHERE ReferralId = {row.referralId}"
     # print(update)
 
-cursor.execute('''SELECT TOP 100
-	                AddressId--,
-	                --[AddressLine1] AS prim_address1,
-	                --[CityName] AS prim_city,
-	                --[StateTypeId] AS [prim_state],
-	                --[ZipCode] AS prim_zip
-                 FROM [ESITDMS_COPY].[dbo].[Address]''')
+cursor.execute('SELECT AddressId FROM [ESITDMS_COPY].[dbo].[Address]')
 
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.Address SET '
@@ -47,9 +32,7 @@ for row in cursor:
     update += f"WHERE AddressId = {row.AddressId}"
     # print(update)
 
-cursor.execute('''SELECT TOP 100 EmailId--,
-                    --EmailAddress
-                FROM [ESITDMS_COPY].[dbo].[Email]''')
+cursor.execute('EmailId FROM [ESITDMS_COPY].[dbo].[Email]')
 
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.Email SET '
