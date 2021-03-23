@@ -61,3 +61,19 @@
     cd acorn-referral-viewdata
     yarn host
     ```
+
+### Connect to AWS MSSQL
+
+- Until we set up ssh tunneling, ssh into the box
+    ```text
+    ssh ec2-user@ec2-34-234-208-52.compute-1.amazonaws.com
+    ```
+- optionally:
+    ```text
+    ssh -i <path-to-private-key> ec2-user@ec2-34-234-208-52.compute-1.amazonaws.com
+    ```
+
+- connect to the mssql db
+    ```text
+    sqlcmd -S cssat-dcyf-db.crartr7yq7ee.us-east-1.rds.amazonaws.com,1433 -U admin -P <password>
+    ```
