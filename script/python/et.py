@@ -32,7 +32,7 @@ for row in cursor:
     update += f"WHERE AddressId = {row.AddressId}"
     # print(update)
 
-cursor.execute('EmailId FROM [ESITDMS_COPY].[dbo].[Email]')
+cursor.execute('SELECT EmailId FROM [ESITDMS_COPY].[dbo].[Email]')
 
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.Email SET '
