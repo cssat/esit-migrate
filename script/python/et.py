@@ -153,6 +153,205 @@ for row in cursor:
     update += f"WHERE COSFOutcomeSupportingEvidenceId = {row.COSFOutcomeSupportingEvidenceId}"
     # print(update)
 
+
+# Eligibility
+
+cursor.execute('SELECT EligibilityId FROM [ESITDMS_COPY].[dbo].[Eligibility]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.Eligibility SET '
+    update += f"InformedClinicalOpinionText = NULL, "
+    update += f"DecisionDate = NULL "
+    update += f"WHERE EligibilityId = {row.EligibilityId}"
+    # print(update)
+
+
+# ESITService
+
+cursor.execute('SELECT ESITServiceId FROM [ESITDMS_COPY].[dbo].[ESITService]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.ESITService SET '
+    update += f"ServiceSettingTypeOtherName = NULL, "
+    update += f"NonNaturalEnvironmentExplanationText = NULL, "
+    update += f"MoveToNaturalEnvironmentPlanText = NULL, "
+    update += f"ConsensusDiscussionText = NULL, "
+    update += f"DeclinedNotesText = NULL, "
+    update += f"LateOrNotStartedReasonText = NULL, "
+    update += f"MethodDescription = 'asdf' "
+    update += f"WHERE ESITServiceId = {row.ESITServiceId}"
+    # print(update)
+
+
+# ESITStaffPerson
+
+cursor.execute('SELECT ESITStaffPersonId FROM [ESITDMS_COPY].[dbo].[ESITStaffPerson]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.ESITStaffPerson SET '
+    update += f"FirstName = '{faker.first_name()}', "
+    update += f"LastName = '{faker.last_name()}' "
+    update += f"WHERE ESITStaffPersonId = {row.ESITStaffPersonId}"
+    # print(update)
+
+
+# EvaluationDomain
+
+cursor.execute('SELECT EvaluationDomainId FROM [ESITDMS_COPY].[dbo].[EvaluationDomain]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.EvaluationDomain SET '
+    update += f"PresentDevelopmentLevelText = NULL, "
+    update += f"RecommendationText = NULL "
+    update += f"WHERE EvaluationDomainId = {row.EvaluationDomainId}"
+    # print(update)
+
+# FunctionalDomainTestResult
+
+cursor.execute('SELECT FunctionalDomainTestResultId FROM [ESITDMS_COPY].[dbo].[FunctionalDomainTestResult]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.FunctionalDomainTestResult SET '
+    update += f"PresentDevelopmentLevelText = NULL, "
+    update += f"DevelopmentAgeMonth = NULL "
+    update += f"WHERE FunctionalDomainTestResultId = {row.FunctionalDomainTestResultId}"
+    # print(update)
+
+# FunctionalTestResult
+
+cursor.execute('SELECT FunctionalTestResultId FROM [ESITDMS_COPY].[dbo].[FunctionalTestResult]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.FunctionalTestResult SET '
+    update += f"AdministeredByName = 'asdf', "
+    update += f"LocationCompletedName = 'asdf', "
+    update += f"ResultSummaryText = 'asdf' "
+    update += f"WHERE FunctionalTestResultId = {row.FunctionalTestResultId}"
+    # print(update)
+
+
+# IFSP
+
+cursor.execute('SELECT IFSPId FROM [ESITDMS_COPY].[dbo].[IFSP]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.IFSP SET '
+    update += f"InterimIFSPReasonText = 'asdf', "
+    update += f"OverdueReasonText = 'asdf', "
+    update += f"OtherCurrentServiceNotesText = 'asdf' "
+    update += f"WHERE IFSPId = {row.IFSPId}"
+    # print(update)
+
+
+# IFSPOtherCurrentService
+
+cursor.execute('SELECT IFSPOtherCurrentServiceId FROM [ESITDMS_COPY].[dbo].[IFSPOtherCurrentService]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.IFSPOtherCurrentService SET '
+    update += f"NonESITServiceTypeOtherList = NULL "
+    update += f"WHERE IFSPOtherCurrentServiceId = {row.IFSPOtherCurrentServiceId}"
+    # print(update)
+
+
+# IFSPOtherDesiredService
+
+cursor.execute('SELECT IFSPOtherDesiredServiceId FROM [ESITDMS_COPY].[dbo].[IFSPOtherDesiredService]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.IFSPOtherDesiredService SET '
+    update += f"ProviderName = 'asdf', "
+    update += f"StrategyText = 'asdf' "
+    update += f"WHERE IFSPOtherDesiredServiceId = {row.IFSPOtherDesiredServiceId}"
+    # print(update)
+
+
+# InboxMessage
+
+cursor.execute('SELECT InboxMessageId FROM [ESITDMS_COPY].[dbo].[InboxMessage]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.InboxMessage SET '
+    update += f"SubjectDesciption = 'asdf', "
+    update += f"MessageText = 'asdf', "
+    update += f"SentDatetime = GETDATE(), "
+    update += f"CreatedDateTime = GETDATE() "
+    update += f"WHERE InboxMessageId = {row.InboxMessageId}"
+    # print(update)
+
+
+# Notification
+
+cursor.execute('SELECT NotificationId FROM [ESITDMS_COPY].[dbo].[Notification]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.Notification SET '
+    update += f"MessageText = 'asdf', "
+    update += f"PostedDateTime = GETDATE(), "
+    update += f"LastUpdatedDateTime = GETDATE() "
+    update += f"WHERE NotificationId = {row.NotificationId}"
+    # print(update)
+
+# ProgressNote
+
+cursor.execute('SELECT ProgressNoteId FROM [ESITDMS_COPY].[dbo].[ProgressNote]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.ProgressNote SET '
+    update += f"SubjectDescription = 'asdf', "
+    update += f"NotesText = 'asdf' "
+    update += f"WHERE ProgressNoteId = {row.ProgressNoteId}"
+    # print(update)
+
+
+# ResourceCoordinationOutcome
+
+cursor.execute('SELECT ResourceCoordinationOutcomeId FROM [ESITDMS_COPY].[dbo].[ResourceCoordinationOutcome]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.ResourceCoordinationOutcome SET '
+    update += f"Name = 'asdf', "
+    update += f"Description = 'asdf', "
+    update += f"StrategiesText = 'asdf' "
+    update += f"WHERE ResourceCoordinationOutcomeId = {row.ResourceCoordinationOutcomeId}"
+    # print(update)
+
+
+# SchoolDistrict
+
+cursor.execute('SELECT SchoolDistrictId FROM [ESITDMS_COPY].[dbo].[SchoolDistrict]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.SchoolDistrict SET '
+    update += f"Name = {faker.city()}' "
+    update += f"WHERE SchoolDistrictId = {row.SchoolDistrictId}"
+    # print(update)
+
+
+# TableUpdateLog
+
+# print "TRUNCATE TABLE TableUpdateLog;"
+
+# TransferChild
+
+cursor.execute('SELECT TransferChildId FROM [ESITDMS_COPY].[dbo].[TransferChild]')
+
+for row in cursor:
+    update = 'UPDATE ESITDMS_COPY.dbo.TransferChild SET '
+    update += f"TransferReasonText = 'asdf' "
+    update += f"WHERE TransferChildId = {row.TransferChildId}"
+    # print(update)
+
+
+# TransitionPlan
+
+# print ("TRUNCATE TABLE TransitionPlan;")
+
+# TransitionPlanActivity
+
+# print("TRUNCATE TABLE TransitionPlanActivity;")
+
+
 # Referral
 
 cursor.execute('SELECT [ReferralId] AS referralId FROM [ESITDMS_COPY].[dbo].[Referral]')
