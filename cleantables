@@ -6,7 +6,7 @@ LastName
 BirthDate
 
 
-ChildAddressHistory
+ChildAddressHistory (Working theory - we may want to record actual changes in domicile. Do we want to bring this over? Maybe just "active" cases?)
 ---
 AddressLine1
 AddressLine2
@@ -16,18 +16,19 @@ ZipCode
 ZipAdd4Code -- null out
 
 
-ChildAgencyHistory
+ChildAgencyHistory (same as ChildAddressHistory - may need a lookup feature. See api repo for all data model stuff (node pg-migrate))
 ---
 CountyTypeID -- null out
 
 
-ChildDocument
+ChildDocument (need to connect Matt and Adam about encryption service; preference would be to not make these available (at least not by July))
+(NOTE: See documents tab in the Acorn Child component)
 ---
 Name
 Description
 
 
-ChildDocumentViewRequest
+ChildDocumentViewRequest (Do not bring overR)
 ---
 Name
 
@@ -37,13 +38,15 @@ ChildInformation
 null out all *Text fields
 
 
-ChildNameHIstory
+ChildNameHIstory (do we want to formally record legal name changes?)
 ---
 FirstName
 MiddleName
 LastName
 BirthDate
 
+
+*****PICK UP HERE*********
 
 ChildOutcome
 ---
