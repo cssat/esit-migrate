@@ -8,7 +8,7 @@ conn = connection.get_connection('ESIT_COPY')
 
 cursor = conn.cursor()
 
-# Child
+# # Child
 
 cursor.execute('SELECT ChildId FROM [ESITDMS_COPY].[dbo].[Child]')
 
@@ -19,7 +19,7 @@ for row in cursor:
     update += f"LastName = '{faker.last_name()}', "
     update += f"BirthDate = '{faker.date_of_birth()}' "
     update += f"WHERE ChildId = {row.ChildId}"
-    # print(update)
+    print(update)
 
 # ChildAddressHistory
 
@@ -34,7 +34,7 @@ for row in cursor:
     update += f"ZipCode = '{faker.zipcode_in_state('WA')}', "
     update += f"ZipAdd4Code = NULL "
     update += f"WHERE ChildAddressHistoryId = {row.ChildAddressHistoryId}"
-    # print(update)
+    print(update)
 
 # ChildAgencyHistory
 
@@ -42,9 +42,9 @@ cursor.execute('SELECT ChildAgencyHistoryId FROM [ESITDMS_COPY].[dbo].[ChildAgen
 
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.ChildAgencyHistory SET '
-    update += f"CountyTypeId = `{random.randint(1, 39)}` "
+    update += f"CountyTypeId = '{random.randint(1, 39)}' "
     update += f"WHERE ChildAgencyHistoryId = {row.ChildAgencyHistoryId}"
-    # print(update)
+    print(update)
 
 # ChildDocument
 
@@ -55,7 +55,7 @@ for row in cursor:
     update += f"Name = '{faker.first_name()}', "
     update += f"Description = 'asdf' "
     update += f"WHERE ChildDocumentId = {row.ChildDocumentId}"
-    # print(update)
+    print(update)
 
 # ChildDocumentViewRequest
 
@@ -65,7 +65,7 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.ChildDocumentViewRequest SET '
     update += f"Name = '{faker.first_name()}' "
     update += f"WHERE ChildDocumentViewRequestId = {row.ChildDocumentViewRequestId}"
-    # print(update)
+    print(update)
 
 # ChildInformation
 
@@ -91,7 +91,7 @@ for row in cursor:
     update += f"FamilyStrengthsText = NULL, "
     update += f"FamilyAdditionalConcernsText = NULL "
     update += f"WHERE ChildInformationId = {row.ChildInformationId}"
-    # print(update)
+    print(update)
 
 # ChildNameHIstory
 
@@ -104,7 +104,7 @@ for row in cursor:
     update += f"LastName = '{faker.last_name()}', "
     update += f"BirthDate = '{faker.date_of_birth()}' "
     update += f"WHERE ChildNameHistoryId = {row.ChildNameHistoryId}"
-    # print(update)
+    print(update)
 
 # ChildOutcome
 
@@ -117,7 +117,7 @@ for row in cursor:
     update += f"SuccessCriteriaText = 'asdf', "
     update += f"StrategiesText = 'asdf' "
     update += f"WHERE ChildOutcomeId = {row.ChildOutcomeId}"
-    # print(update)
+    print(update)
 
 # ContactPerson
 
@@ -128,7 +128,7 @@ for row in cursor:
     update += f"FirstName = '{faker.first_name()}', "
     update += f"LastName = '{faker.last_name()}' "
     update += f"WHERE ContactPersonId = {row.ContactPersonId}"
-    # print(update)
+    print(update)
 
 # COSFOutcome
 
@@ -140,7 +140,7 @@ for row in cursor:
     update += f"COSFOutcomeDescriptorText = NULL, "
     update += f"ResultsSummaryText = NULL "
     update += f"WHERE COSFOutcomeId = {row.COSFOutcomeId}"
-    # print(update)
+    print(update)
 
 # COSFOutcomeSupportingEvidence
 
@@ -151,7 +151,7 @@ for row in cursor:
     update += f"SupportingEvidenceSourceTypeOtherName = NULL, "
     update += f"ResultsSummaryText = NULL "
     update += f"WHERE COSFOutcomeSupportingEvidenceId = {row.COSFOutcomeSupportingEvidenceId}"
-    # print(update)
+    print(update)
 
 
 # Eligibility
@@ -163,7 +163,7 @@ for row in cursor:
     update += f"InformedClinicalOpinionText = NULL, "
     update += f"DecisionDate = NULL "
     update += f"WHERE EligibilityId = {row.EligibilityId}"
-    # print(update)
+    print(update)
 
 
 # ESITService
@@ -180,7 +180,7 @@ for row in cursor:
     update += f"LateOrNotStartedReasonText = NULL, "
     update += f"MethodDescription = 'asdf' "
     update += f"WHERE ESITServiceId = {row.ESITServiceId}"
-    # print(update)
+    print(update)
 
 
 # ESITStaffPerson
@@ -192,7 +192,7 @@ for row in cursor:
     update += f"FirstName = '{faker.first_name()}', "
     update += f"LastName = '{faker.last_name()}' "
     update += f"WHERE ESITStaffPersonId = {row.ESITStaffPersonId}"
-    # print(update)
+    print(update)
 
 
 # EvaluationDomain
@@ -204,7 +204,7 @@ for row in cursor:
     update += f"PresentDevelopmentLevelText = NULL, "
     update += f"RecommendationText = NULL "
     update += f"WHERE EvaluationDomainId = {row.EvaluationDomainId}"
-    # print(update)
+    print(update)
 
 # FunctionalDomainTestResult
 
@@ -215,7 +215,7 @@ for row in cursor:
     update += f"PresentDevelopmentLevelText = NULL, "
     update += f"DevelopmentAgeMonth = NULL "
     update += f"WHERE FunctionalDomainTestResultId = {row.FunctionalDomainTestResultId}"
-    # print(update)
+    print(update)
 
 # FunctionalTestResult
 
@@ -227,8 +227,7 @@ for row in cursor:
     update += f"LocationCompletedName = 'asdf', "
     update += f"ResultSummaryText = 'asdf' "
     update += f"WHERE FunctionalTestResultId = {row.FunctionalTestResultId}"
-    # print(update)
-
+    print(update)
 
 # IFSP
 
@@ -240,8 +239,7 @@ for row in cursor:
     update += f"OverdueReasonText = 'asdf', "
     update += f"OtherCurrentServiceNotesText = 'asdf' "
     update += f"WHERE IFSPId = {row.IFSPId}"
-    # print(update)
-
+    print(update)
 
 # IFSPOtherCurrentService
 
@@ -251,8 +249,7 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.IFSPOtherCurrentService SET '
     update += f"NonESITServiceTypeOtherList = NULL "
     update += f"WHERE IFSPOtherCurrentServiceId = {row.IFSPOtherCurrentServiceId}"
-    # print(update)
-
+    print(update)
 
 # IFSPOtherDesiredService
 
@@ -263,8 +260,7 @@ for row in cursor:
     update += f"ProviderName = 'asdf', "
     update += f"StrategyText = 'asdf' "
     update += f"WHERE IFSPOtherDesiredServiceId = {row.IFSPOtherDesiredServiceId}"
-    # print(update)
-
+    print(update)
 
 # InboxMessage
 
@@ -277,8 +273,7 @@ for row in cursor:
     update += f"SentDatetime = GETDATE(), "
     update += f"CreatedDateTime = GETDATE() "
     update += f"WHERE InboxMessageId = {row.InboxMessageId}"
-    # print(update)
-
+    print(update)
 
 # Notification
 
@@ -290,7 +285,7 @@ for row in cursor:
     update += f"PostedDateTime = GETDATE(), "
     update += f"LastUpdatedDateTime = GETDATE() "
     update += f"WHERE NotificationId = {row.NotificationId}"
-    # print(update)
+    print(update)
 
 # ProgressNote
 
@@ -301,8 +296,7 @@ for row in cursor:
     update += f"SubjectDescription = 'asdf', "
     update += f"NotesText = 'asdf' "
     update += f"WHERE ProgressNoteId = {row.ProgressNoteId}"
-    # print(update)
-
+    print(update)
 
 # ResourceCoordinationOutcome
 
@@ -314,8 +308,7 @@ for row in cursor:
     update += f"Description = 'asdf', "
     update += f"StrategiesText = 'asdf' "
     update += f"WHERE ResourceCoordinationOutcomeId = {row.ResourceCoordinationOutcomeId}"
-    # print(update)
-
+    print(update)
 
 # SchoolDistrict
 
@@ -325,12 +318,11 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.SchoolDistrict SET '
     update += f"Name = {faker.city()}' "
     update += f"WHERE SchoolDistrictId = {row.SchoolDistrictId}"
-    # print(update)
-
+    print(update)
 
 # TableUpdateLog
 
-# print "TRUNCATE TABLE TableUpdateLog;"
+print("TRUNCATE TABLE TableUpdateLog;")
 
 # TransferChild
 
@@ -340,17 +332,15 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.TransferChild SET '
     update += f"TransferReasonText = 'asdf' "
     update += f"WHERE TransferChildId = {row.TransferChildId}"
-    # print(update)
-
+    print(update)
 
 # TransitionPlan
 
-# print ("TRUNCATE TABLE TransitionPlan;")
+print("TRUNCATE TABLE TransitionPlan;")
 
 # TransitionPlanActivity
 
-# print("TRUNCATE TABLE TransitionPlanActivity;")
-
+print("TRUNCATE TABLE TransitionPlanActivity;")
 
 # Referral
 
@@ -367,7 +357,7 @@ for row in cursor:
     update += f"ReferrerLastNamee = '{faker.last_name()}', "
     update += f"ReferralClosureReasonOtherName = null "
     update += f"WHERE ReferralId = {row.referralId}"
-    # print(update)
+    print(update)
 
 # Address
 
@@ -380,7 +370,7 @@ for row in cursor:
     update += f"ZipCode = '{faker.zipcode_in_state('WA')}' "
     #### update -- sanitize lat/lon? -- currently all values are null in our copy database
     update += f"WHERE AddressId = {row.AddressId}"
-    # print(update)
+    print(update)
 
 # Email
 
@@ -390,4 +380,4 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.Email SET '
     update += f"EmailAddress = '{faker.email()}' "
     update += f"WHERE EmailId = {row.EmailId}"
-    # print(update)
+    print(update)
