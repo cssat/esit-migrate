@@ -85,7 +85,7 @@ for row in cursor:
     update += f"ChildActivityGoingWellText = NULL, "
     update += f"ChildActivityDifficultText = NULL, "
     update += f"ChildActivityFamilyDoesNotDoText = NULL, "
-    update += f"WaiveFamilyConcernsFlag = NULL, "
+    update += f"WaiveFamilyConcernsFlag = 'asdf', "
     update += f"FamilyConcernsSummaryText = NULL, "
     update += f"FamilyConcernsPriorityText = NULL, "
     update += f"FamilyStrengthsText = NULL, "
