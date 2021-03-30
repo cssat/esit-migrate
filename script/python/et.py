@@ -324,7 +324,7 @@ cursor.execute('SELECT InboxMessageId FROM [ESITDMS_COPY].[dbo].[InboxMessage]')
 
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.InboxMessage SET '
-    update += f"SubjectDesciption = 'asdf', "
+    update += f"SubjectDescription = 'asdf', "
     update += f"MessageText = 'asdf', "
     update += f"SentDatetime = GETDATE(), "
     update += f"CreatedDateTime = GETDATE() "
@@ -384,7 +384,7 @@ cursor.execute('SELECT SchoolDistrictId FROM [ESITDMS_COPY].[dbo].[SchoolDistric
 
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.SchoolDistrict SET '
-    update += f"Name = {faker.city()}' "
+    update += f"Name = '{faker.city()}' "
     update += f"WHERE SchoolDistrictId = {row.SchoolDistrictId}"
     # print(update)
     with open('sql/SchoolDistrict.sql', 'a') as file:
@@ -428,7 +428,7 @@ for row in cursor:
     update += f"PrimaryContactFirstName = '{faker.first_name()}', "
     update += f"PrimaryContactLastName = '{faker.last_name()}', "
     update += f"ReferrerFirstName = '{faker.first_name()}', "
-    update += f"ReferrerLastNamee = '{faker.last_name()}', "
+    update += f"ReferrerLastName = '{faker.last_name()}', "
     update += f"ReferralClosureReasonOtherName = null "
     update += f"WHERE ReferralId = {row.referralId}"
     # print(update)
