@@ -8,7 +8,7 @@ conn = connection.get_connection('ESIT_COPY')
 
 cursor = conn.cursor()
 
-# # Child
+# Child
 
 cursor.execute('SELECT ChildId FROM [ESITDMS_COPY].[dbo].[Child]')
 
@@ -19,7 +19,10 @@ for row in cursor:
     update += f"LastName = '{faker.last_name()}', "
     update += f"BirthDate = '{faker.date_of_birth()}' "
     update += f"WHERE ChildId = {row.ChildId}"
-    print(update)
+    # print(update)
+    with open('sql/Child.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ChildAddressHistory
 
@@ -34,7 +37,10 @@ for row in cursor:
     update += f"ZipCode = '{faker.zipcode_in_state('WA')}', "
     update += f"ZipAdd4Code = NULL "
     update += f"WHERE ChildAddressHistoryId = {row.ChildAddressHistoryId}"
-    print(update)
+    # print(update)
+    with open('sql/ChildAddressHistory.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ChildAgencyHistory
 
@@ -44,7 +50,10 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.ChildAgencyHistory SET '
     update += f"CountyTypeId = '{random.randint(1, 39)}' "
     update += f"WHERE ChildAgencyHistoryId = {row.ChildAgencyHistoryId}"
-    print(update)
+    # print(update)
+    with open('sql/ChildAgencyHistory.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ChildDocument
 
@@ -55,7 +64,10 @@ for row in cursor:
     update += f"Name = '{faker.first_name()}', "
     update += f"Description = 'asdf' "
     update += f"WHERE ChildDocumentId = {row.ChildDocumentId}"
-    print(update)
+    # print(update)
+    with open('sql/ChildDocument.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ChildDocumentViewRequest
 
@@ -65,7 +77,10 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.ChildDocumentViewRequest SET '
     update += f"Name = '{faker.first_name()}' "
     update += f"WHERE ChildDocumentViewRequestId = {row.ChildDocumentViewRequestId}"
-    print(update)
+    # print(update)
+    with open('sql/ChildDocumentViewRequest.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ChildInformation
 
@@ -85,13 +100,16 @@ for row in cursor:
     update += f"ChildActivityGoingWellText = NULL, "
     update += f"ChildActivityDifficultText = NULL, "
     update += f"ChildActivityFamilyDoesNotDoText = NULL, "
-    update += f"WaiveFamilyConcernsFlag = 'asdf', "
+    update += f"WaiveFamilyConcernsFlag = 0, "
     update += f"FamilyConcernsSummaryText = NULL, "
     update += f"FamilyConcernsPriorityText = NULL, "
     update += f"FamilyStrengthsText = NULL, "
     update += f"FamilyAdditionalConcernsText = NULL "
     update += f"WHERE ChildInformationId = {row.ChildInformationId}"
-    print(update)
+    # print(update)
+    with open('sql/ChildInformation.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ChildNameHIstory
 
@@ -104,7 +122,10 @@ for row in cursor:
     update += f"LastName = '{faker.last_name()}', "
     update += f"BirthDate = '{faker.date_of_birth()}' "
     update += f"WHERE ChildNameHistoryId = {row.ChildNameHistoryId}"
-    print(update)
+    # print(update)
+    with open('sql/ChildNameHistory.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ChildOutcome
 
@@ -117,7 +138,10 @@ for row in cursor:
     update += f"SuccessCriteriaText = 'asdf', "
     update += f"StrategiesText = 'asdf' "
     update += f"WHERE ChildOutcomeId = {row.ChildOutcomeId}"
-    print(update)
+    # print(update)
+    with open('sql/ChildOutcome.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ContactPerson
 
@@ -128,7 +152,10 @@ for row in cursor:
     update += f"FirstName = '{faker.first_name()}', "
     update += f"LastName = '{faker.last_name()}' "
     update += f"WHERE ContactPersonId = {row.ContactPersonId}"
-    print(update)
+    # print(update)
+    with open('sql/ContactPerson.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # COSFOutcome
 
@@ -140,7 +167,10 @@ for row in cursor:
     update += f"COSFOutcomeDescriptorText = NULL, "
     update += f"ResultsSummaryText = NULL "
     update += f"WHERE COSFOutcomeId = {row.COSFOutcomeId}"
-    print(update)
+    # print(update)
+    with open('sql/COSFOutcome.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # COSFOutcomeSupportingEvidence
 
@@ -151,8 +181,10 @@ for row in cursor:
     update += f"SupportingEvidenceSourceTypeOtherName = NULL, "
     update += f"ResultsSummaryText = NULL "
     update += f"WHERE COSFOutcomeSupportingEvidenceId = {row.COSFOutcomeSupportingEvidenceId}"
-    print(update)
-
+    # print(update)
+    with open('sql/COSFOutcomeSupportingEvidence.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # Eligibility
 
@@ -163,8 +195,10 @@ for row in cursor:
     update += f"InformedClinicalOpinionText = NULL, "
     update += f"DecisionDate = NULL "
     update += f"WHERE EligibilityId = {row.EligibilityId}"
-    print(update)
-
+    # print(update)
+    with open('sql/Eligibility.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ESITService
 
@@ -180,8 +214,10 @@ for row in cursor:
     update += f"LateOrNotStartedReasonText = NULL, "
     update += f"MethodDescription = 'asdf' "
     update += f"WHERE ESITServiceId = {row.ESITServiceId}"
-    print(update)
-
+    # print(update)
+    with open('sql/ESITService.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ESITStaffPerson
 
@@ -192,8 +228,10 @@ for row in cursor:
     update += f"FirstName = '{faker.first_name()}', "
     update += f"LastName = '{faker.last_name()}' "
     update += f"WHERE ESITStaffPersonId = {row.ESITStaffPersonId}"
-    print(update)
-
+    # print(update)
+    with open('sql/ESITStaffPerson.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # EvaluationDomain
 
@@ -204,7 +242,10 @@ for row in cursor:
     update += f"PresentDevelopmentLevelText = NULL, "
     update += f"RecommendationText = NULL "
     update += f"WHERE EvaluationDomainId = {row.EvaluationDomainId}"
-    print(update)
+    # print(update)
+    with open('sql/EvaluationDomain.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # FunctionalDomainTestResult
 
@@ -215,7 +256,10 @@ for row in cursor:
     update += f"PresentDevelopmentLevelText = NULL, "
     update += f"DevelopmentAgeMonth = NULL "
     update += f"WHERE FunctionalDomainTestResultId = {row.FunctionalDomainTestResultId}"
-    print(update)
+    # print(update)
+    with open('sql/FunctionalDomainTestResult.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # FunctionalTestResult
 
@@ -225,9 +269,12 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.FunctionalTestResult SET '
     update += f"AdministeredByName = 'asdf', "
     update += f"LocationCompletedName = 'asdf', "
-    update += f"ResultSummaryText = 'asdf' "
+    update += f"ResultsSummaryText = 'asdf' "
     update += f"WHERE FunctionalTestResultId = {row.FunctionalTestResultId}"
-    print(update)
+    # print(update)
+    with open('sql/FunctionalTestResult.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # IFSP
 
@@ -239,7 +286,10 @@ for row in cursor:
     update += f"OverdueReasonText = 'asdf', "
     update += f"OtherCurrentServiceNotesText = 'asdf' "
     update += f"WHERE IFSPId = {row.IFSPId}"
-    print(update)
+    # print(update)
+    with open('sql/IFSP.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # IFSPOtherCurrentService
 
@@ -249,7 +299,10 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.IFSPOtherCurrentService SET '
     update += f"NonESITServiceTypeOtherList = NULL "
     update += f"WHERE IFSPOtherCurrentServiceId = {row.IFSPOtherCurrentServiceId}"
-    print(update)
+    # print(update)
+    with open('sql/IFSPOtherCurrentService.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # IFSPOtherDesiredService
 
@@ -260,7 +313,10 @@ for row in cursor:
     update += f"ProviderName = 'asdf', "
     update += f"StrategyText = 'asdf' "
     update += f"WHERE IFSPOtherDesiredServiceId = {row.IFSPOtherDesiredServiceId}"
-    print(update)
+    # print(update)
+    with open('sql/IFSPOtherDesiredService.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # InboxMessage
 
@@ -273,7 +329,10 @@ for row in cursor:
     update += f"SentDatetime = GETDATE(), "
     update += f"CreatedDateTime = GETDATE() "
     update += f"WHERE InboxMessageId = {row.InboxMessageId}"
-    print(update)
+    # print(update)
+    with open('sql/InboxMessage.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # Notification
 
@@ -285,7 +344,10 @@ for row in cursor:
     update += f"PostedDateTime = GETDATE(), "
     update += f"LastUpdatedDateTime = GETDATE() "
     update += f"WHERE NotificationId = {row.NotificationId}"
-    print(update)
+    # print(update)
+    with open('sql/Notification.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ProgressNote
 
@@ -296,7 +358,10 @@ for row in cursor:
     update += f"SubjectDescription = 'asdf', "
     update += f"NotesText = 'asdf' "
     update += f"WHERE ProgressNoteId = {row.ProgressNoteId}"
-    print(update)
+    # print(update)
+    with open('sql/ProgressNote.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # ResourceCoordinationOutcome
 
@@ -308,7 +373,10 @@ for row in cursor:
     update += f"Description = 'asdf', "
     update += f"StrategiesText = 'asdf' "
     update += f"WHERE ResourceCoordinationOutcomeId = {row.ResourceCoordinationOutcomeId}"
-    print(update)
+    # print(update)
+    with open('sql/ResourceCoordinationOutcome.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # SchoolDistrict
 
@@ -318,7 +386,10 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.SchoolDistrict SET '
     update += f"Name = {faker.city()}' "
     update += f"WHERE SchoolDistrictId = {row.SchoolDistrictId}"
-    print(update)
+    # print(update)
+    with open('sql/SchoolDistrict.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # TableUpdateLog
 
@@ -332,7 +403,10 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.TransferChild SET '
     update += f"TransferReasonText = 'asdf' "
     update += f"WHERE TransferChildId = {row.TransferChildId}"
-    print(update)
+    # print(update)
+    with open('sql/TransferChild.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # TransitionPlan
 
@@ -357,7 +431,10 @@ for row in cursor:
     update += f"ReferrerLastNamee = '{faker.last_name()}', "
     update += f"ReferralClosureReasonOtherName = null "
     update += f"WHERE ReferralId = {row.referralId}"
-    print(update)
+    # print(update)
+    with open('sql/Referral.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # Address
 
@@ -370,7 +447,10 @@ for row in cursor:
     update += f"ZipCode = '{faker.zipcode_in_state('WA')}' "
     #### update -- sanitize lat/lon? -- currently all values are null in our copy database
     update += f"WHERE AddressId = {row.AddressId}"
-    print(update)
+    # print(update)
+    with open('sql/Address.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
 
 # Email
 
@@ -380,4 +460,7 @@ for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.Email SET '
     update += f"EmailAddress = '{faker.email()}' "
     update += f"WHERE EmailId = {row.EmailId}"
-    print(update)
+    # print(update)
+    with open('sql/Email.sql', 'a') as file:
+        file.write(update)
+        file.write('\n')
