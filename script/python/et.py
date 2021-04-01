@@ -254,10 +254,10 @@ cursor.execute('SELECT FunctionalDomainTestResultId FROM [ESITDMS_COPY].[dbo].[F
 for row in cursor:
     update = 'UPDATE ESITDMS_COPY.dbo.FunctionalDomainTestResult SET '
     update += f"PresentDevelopmentLevelText = NULL, "
-    update += f"DevelopmentAgeMonth = NULL "
+    update += f"DevelopmentAgeMonths = NULL "
     update += f"WHERE FunctionalDomainTestResultId = {row.FunctionalDomainTestResultId}"
     # print(update)
-    with open('sql/FunctionalDomainTestResult.sql', 'a') as file:
+    with open('sql/FunctionalDomainTestResult.sql', 'w') as file:
         file.write(update)
         file.write('\n')
 
